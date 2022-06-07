@@ -206,6 +206,8 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
+    socialization (2.0.1)
+      activerecord
     spring (4.0.0)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
@@ -264,11 +266,12 @@ DEPENDENCIES
   puma (~> 5.0)
   pundit
   rack-mini-profiler (~> 2.0)
-  rails (~> 6.1.6)
+  rails (~> 6.1)
   redis (~> 4.0)
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   simple_form!
+  socialization
   spring
   turbolinks (~> 5)
   tzinfo-data
