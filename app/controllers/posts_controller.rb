@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = policy_scope(Post)
     @post = Post.new
   end
 
@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    authorize @post
     @post.user = current_user
     if @post.save
       redirect_to posts_path
@@ -20,12 +21,14 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    authorize @post
     @post.destroy
     redirect_to posts_path
   end
 
   def show
     @post = Post.find(params[:id])
+    authorize @post
   end
 
   private
