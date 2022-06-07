@@ -1,0 +1,22 @@
+<div class="form-style">
+  <%= simple_form_for @post do |f|  %>
+    <%= f.input :content  %>
+    <%= f.input :media %>
+    <%= f.submit class: 'btn btn-primary btn-rounded'%>
+  <%end%>
+</div>
+
+<div class="container">
+  <% @posts.each do |post| %>
+    <%= link_to post_path(post), style:"color: black; text-decoration:none;" do  %>
+      <div class='card' style="width: 18rem;">
+        <div class='card-body'>
+          <%= post.content %>
+          <%= post.media %>
+          <%= post.user.username %>
+          <%= post.created_at.strftime("%H:%M %d-%m-%Y")%>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

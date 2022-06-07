@@ -1,0 +1,9 @@
+<div>
+<h1><%= @post.user.username %></h1>
+<p><%="posted at #{@post.created_at.strftime("%H:%M %d-%m-%Y")}" %></p>
+<p style="font-size: 30px;"><%= @post.content %></p>
+</div>
+<%= link_to 'Return', posts_path, class: "mx-5 btn btn-warning btn-rounded" %>
+<%= link_to 'delete',post_path(@post), method: 'delete', data: { confirm: 'delete post?' }, class: "mx-5 btn btn-danger btn-rounded" %>
+
+</div>
