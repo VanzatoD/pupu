@@ -1,7 +1,8 @@
 <div class="form-style">
   <%= simple_form_for @post do |f|  %>
     <%= f.input :content  %>
-    <%= f.input :media %>
+    <%= f.input :photo, as: :file %>
+    <%= f.input :video, as: :file %>
     <%= f.submit class: 'btn btn-primary btn-rounded'%>
   <%end%>
 </div>
@@ -12,7 +13,10 @@
       <div class='card' style="width: 18rem;">
         <div class='card-body'>
           <%= post.content %>
-          <%= post.media %>
+           <% if post.photo.attached? %>
+          <div class="p-5" style="width:300px; height: 192px; background-image: url(<%= cl_image_path post.photo.key %>); background-size: cover; background-repeat: no-repeat;" >
+          </div>
+        <% end %>
           <%= post.user.username %>
           <%= post.created_at.strftime("%H:%M %d-%m-%Y")%>
         </div>
