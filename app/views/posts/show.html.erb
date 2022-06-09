@@ -12,4 +12,12 @@
 <% if policy(@post).destroy? %>
   <%= link_to 'delete',post_path(@post), method: 'delete', data: { confirm: 'delete post?' }, class: "mx-5 btn btn-danger btn-rounded" %>
 <%end%>
+
+<% if user_signed_in? %>
+  <% if @post.liked?(current_user) %>
+    <%= button_to "Like", like_path(@post), method: "put", disabled: true %>
+  <% else %>
+    <%= button_to "Like", like_path(@post), method: "put" %>
+  <% end %>
+<% end %>
 </div>
