@@ -13,3 +13,20 @@
   <%= link_to 'delete',post_path(@post), method: 'delete', data: { confirm: 'delete post?' }, class: "mx-5 btn btn-danger btn-rounded" %>
 <%end%>
 </div>
+<div class="comment-section">
+
+<div class="form-style">
+  <%= simple_form_for [@post, @comment] do |f|  %>
+    <%= f.input :content  %>
+    <%= f.submit class: 'btn btn-primary btn-rounded'%>
+  <%end%>
+</div>
+
+  <% @comments.each do |comment|%>
+    <div class="card">
+      <%= comment.user.username %>
+      <%= comment.created_at.strftime("%H:%M %d-%m-%Y") %>
+     <%= comment.content %>
+    </div>
+  <% end %>
+</div>
