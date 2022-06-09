@@ -28,16 +28,16 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @likes = @post.likes.count
     authorize @post
   end
 
-  def like
-    @post = Post.all.find(params[:id])
-    Like.create(user_id: current_user.id, post_id: @post.id)
-    redirect_to post_path(@post)
-    authorize @post
-
-  end
+  # def like
+  #   @post = Post.all.find(params[:id])
+  #   Like.create(user_id: current_user.id, post_id: @post.id)
+  #   redirect_to post_path(@post)
+  #   authorize @post
+  # end
 
   private
 

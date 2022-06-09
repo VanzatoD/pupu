@@ -5,13 +5,15 @@ Rails.application.routes.draw do
   get 'inbox', to: 'chatrooms#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :posts, only: [:index, :destroy, :create, :show]
+  resources :posts, only: [:index, :destroy, :create, :show] do
+    resources :likes, only: [:create]
+  end
+
+  resources :likes, only: [:destroy]
 
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
-
-  put '/post/:id/like', to: 'posts#like', as: 'like'
 
   # match :like, to: 'likes#create', as: :like, via: :post
   # match :unlike, to: 'likes#destroy', as: :unlike, via: :post
