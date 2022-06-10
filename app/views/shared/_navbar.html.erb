@@ -1,3 +1,5 @@
+<% @your_user = current_user %>
+
 <div class="navbar navbar-expand-sm navbar-light">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
@@ -20,7 +22,7 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", profile_path, class: "dropdown-item" %>
+              <%= link_to "Profile", user_path(@your_user), class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
