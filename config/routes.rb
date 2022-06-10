@@ -6,15 +6,30 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :posts, only: [:index, :destroy, :create, :show] do
+
     resources :likes, only: [:create]
   end
 
   resources :likes, only: [:destroy]
 
+    resources :comments, only: [:index, :create]
+  end
+
+  resources :comments, only: [ :destroy, :show]
+
+
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
 
+
   # match :like, to: 'likes#create', as: :like, via: :post
   # match :unlike, to: 'likes#destroy', as: :unlike, via: :post
+
+  resources :users do
+    resources :follows, only: [:create]
+  end
+
+  resources :follows, only: [:destroy]
+
 end

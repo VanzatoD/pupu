@@ -20,6 +20,7 @@
 
 </div>
 
+
 <% if user_signed_in? %>
   <% if @post.liked?(current_user) %>
     <% @like = @post.liked?(current_user) %>
@@ -28,3 +29,22 @@
     <%= link_to "Like", post_likes_path(@post), method: :post %>
   <% end %>
 <% end %>
+
+<div class="comment-section">
+
+<div class="form-style">
+  <%= simple_form_for [@post, @comment] do |f|  %>
+    <%= f.input :content  %>
+    <%= f.submit class: 'btn btn-primary btn-rounded'%>
+  <%end%>
+</div>
+
+  <% @comments.each do |comment|%>
+    <div class="card">
+      <%= comment.user.username %>
+      <%= comment.created_at.strftime("%H:%M %d-%m-%Y") %>
+     <%= comment.content %>
+    </div>
+  <% end %>
+</div>
+

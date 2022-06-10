@@ -28,7 +28,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+
     @likes = @post.likes.count
+
+    @comment = Comment.new
+    @comments = Comment.where(post: @post)
     authorize @post
   end
 
