@@ -17,4 +17,8 @@ class PostPolicy < ApplicationPolicy
   def show?
     return true
   end
+
+  def like?
+    return true
+  end
 end

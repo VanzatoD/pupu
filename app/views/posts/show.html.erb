@@ -12,7 +12,24 @@
 <% if policy(@post).destroy? %>
   <%= link_to 'delete',post_path(@post), method: 'delete', data: { confirm: 'delete post?' }, class: "mx-5 btn btn-danger btn-rounded" %>
 <%end%>
+
+
+  <div>
+    <%= @likes %>
+  </div>
+
 </div>
+
+
+<% if user_signed_in? %>
+  <% if @post.liked?(current_user) %>
+    <% @like = @post.liked?(current_user) %>
+    <%= link_to "Dislike", like_path(@like), method: :delete %>
+  <% else %>
+    <%= link_to "Like", post_likes_path(@post), method: :post %>
+  <% end %>
+<% end %>
+
 <div class="comment-section">
 
 <div class="form-style">
@@ -30,3 +47,4 @@
     </div>
   <% end %>
 </div>
+
