@@ -8,10 +8,13 @@
     <p>Followers: <%= @user.followers.count %></p>
     <p>Following: <%= @user.following.count %></p>
 
-      <% unless @user.id = current_user  %>
+      <% unless @user.id == current_user.id  %>
 
-      <%= link_to 'Follow', user_follows_path(@user), method: :post, class: 'btn btn-primary' unless @follow.present? %>
-      <%= link_to 'Unfollow', follow_path(@follow.id), method: :delete, class: 'btn btn-danger' if @follow.present? %>
+        <% if @follow.present? %>
+           <%= link_to 'Unfollow', follow_path(@follow.id), method: :delete, class: 'btn btn-danger' %>
+        <% else %>
+         <%= link_to 'Follow', user_follows_path(@user), method: :post, class: 'btn btn-primary'  %>
+         <% end %>
       <% end %>
   </div>
 
