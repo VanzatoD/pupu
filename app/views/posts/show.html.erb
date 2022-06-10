@@ -1,5 +1,5 @@
 <div>
-<h1><%= link_to @post.user.username, user_path(@post.user), method: :get %></h1>
+<h1><%= @post.user.username %></h1>
 <p><%="posted at #{@post.created_at.strftime("%H:%M %d-%m-%Y")}" %></p>
 <p style="font-size: 30px;"><%= @post.content %></p>
 
@@ -41,10 +41,9 @@
 
   <% @comments.each do |comment|%>
     <div class="card">
-      <%= link_to comment.user.username, user_path(comment.user), method: :get %>
+   <%= comment.user.username %>
       <%= comment.created_at.strftime("%H:%M %d-%m-%Y") %>
      <%= comment.content %>
     </div>
   <% end %>
 </div>
-
