@@ -27,7 +27,7 @@ gem 'pundit'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
+gem 'acts-as-taggable-on', '~> 9.0'
 gem 'devise'
 
 gem 'autoprefixer-rails', '10.2.5'
