@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   TAGS = ['League of Legends', 'Counter Strike', 'Tekken 7']
 
+
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
