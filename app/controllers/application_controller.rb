@@ -15,6 +15,7 @@ end
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :tag_list])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:tag_list, :avatar])
   end
 
   private
