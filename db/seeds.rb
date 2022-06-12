@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Chatroom.create(name: "League of Legends")
+Chatroom.create(name: "Counter-Strike: Global Offensive")
+Chatroom.create(name: "Dota 2")
+Chatroom.create(name: "Overwatch")
+Chatroom.create(name: "Apex Legends")
+Chatroom.create(name: "Fortnite")
