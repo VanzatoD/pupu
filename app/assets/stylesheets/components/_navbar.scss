@@ -1,6 +1,12 @@
 .navbar {
+  position: relative;
   justify-content: space-between;
-  background: white;
+  .nav-link {
+    color: rgba(250, 250, 250, 0.6);
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
 }
 
 .navbar .navbar-collapse {
@@ -9,4 +15,22 @@
 
 .navbar .navbar-brand img {
   width: 40px;
+}
+
+.navbar {
+  background-color: #1e2528;
+  background-image: linear-gradient(147deg, #1e2528 0%, rgba(14, 246, 190, 0.3) 74%);
+}
+
+.dropdown-menu{
+  background-color: #1A6456;
+}
+
+.dropdown-item{
+  color: #F1FFFF;
+}
+
+.dropdown-item:hover{
+  background-color: #2a8675;
+  color: #F1FFFF;
 }
