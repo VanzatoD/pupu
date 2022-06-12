@@ -1,3 +1,5 @@
+<h1>General Chatrooms</h1>
+<p>Talk about your favorite games</p>
 <ul>
   <% @chatrooms.each do |chatroom| %>
     <%= link_to chatroom_path(chatroom) do %>
@@ -5,3 +7,4 @@
     <% end %>
   <% end %>
 </ul>
+<%= link_to 'Return', posts_path, class: "mx-5 btn btn-warning btn-rounded" %>
