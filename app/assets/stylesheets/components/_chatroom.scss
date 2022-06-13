@@ -1,5 +1,4 @@
 .chatroom {
-  background: white;
   margin-top: 9px;
   padding-bottom: 40px;
   height: calc(100vh - 75px);
@@ -15,6 +14,11 @@
   }
 
   .messages {
+    background-image: url("https://res.cloudinary.com/juliocb01/image/upload/v1655154469/iWallpapers_zsixte.png");
+    background-repeat: repeat;
+    background-size: contain, cover;
+    background-color: #1e2528;
+    color: #f7f7f7;
     height: 100%;
     overflow: scroll;
     padding: 1rem;
