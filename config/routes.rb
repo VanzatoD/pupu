@@ -18,8 +18,9 @@ Rails.application.routes.draw do
 
   resources :comments, only: [ :destroy, :show]
 
-
-
+  resources :teams, only: [ :create, :new, :destroy, :show ] do
+    resources :memberships, only: [ :create ]
+  end
 
   # match :like, to: 'likes#create', as: :like, via: :post
   # match :unlike, to: 'likes#destroy', as: :unlike, via: :post
