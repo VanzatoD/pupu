@@ -1,26 +1,70 @@
-<div class="form-style">
-  <%= simple_form_for @post do |f|  %>
-    <%= f.input :content  %>
-    <%= f.input :photo, as: :file %>
-    <%= f.input :video, as: :file %>
-    <%= f.submit class: 'btn btn-primary btn-rounded'%>
-  <%end%>
-</div>
+<div class="d-flex justify-content-between mt-4">
+  <div class="user-infos">
+    <div class="container p-5">
+      <% if current_user.avatar.attached? %>
+        <%= cl_image_tag current_user.avatar.key, class: "avatar feed-avatar" %>
+      <% else %>
+        <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "avatar feed-avatar" %>
+      <% end %>
 
-<div class="container">
-  <% @posts.each do |post| %>
-    <%= link_to post_path(post), style:"color: black; text-decoration:none;" do  %>
-      <div class='card' style="width: 18rem;">
-        <div class='card-body'>
-          <%=post.content %>
-           <% if post.photo.attached? %>
-          <div class="p-5" style="width:300px; height: 192px; background-image: url(<%= cl_image_path post.photo.key %>); background-size: cover; background-repeat: no-repeat;" >
+      <h3><%= current_user.username  %></h3>
+        <p style="oppacity= 50%">looking for a team <i class="fa-solid fa-magnifying-glass"></i></p>
+        <p>followers <%= current_user.followers.count %></p>
+        <p>following <%= current_user.following.count %></p>
+    </div>
+
+    <div class="container">
+        <h3>Not in a team yet</h3>
+    </div>
+  </div>
+
+
+
+  <div>
+    <div class="form-style">
+      <%= simple_form_for @post do |f|  %>
+        <%= f.input :content  %>
+        <%= f.input :photo, as: :file %>
+        <%= f.input :video, as: :file %>
+        <%= f.submit class: 'btn btn-primary btn-rounded'%>
+      <%end%>
+    </div>
+
+    <div class="container">
+      <% @posts.each do |post| %>
+        <%= link_to post_path(post), style:"color: black; text-decoration:none;" do  %>
+          <div class='card' style="width: 18rem;">
+            <div class='card-body'>
+              <%=post.content %>
+              <% if post.photo.attached? %>
+              <div class="p-5" style="width:300px; height: 192px; background-image: url(<%= cl_image_path post.photo.key %>); background-size: cover; background-repeat: no-repeat;" >
+              </div>
+            <% end %>
+              <%= post.user.username %>
+              <%= post.created_at.strftime("%H:%M %d-%m-%Y")%>
+            </div>
           </div>
         <% end %>
-          <%= post.user.username %>
-          <%= post.created_at.strftime("%H:%M %d-%m-%Y")%>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="social-infos">
+
+
+
+    <div class="chats">
+      <ul>
+        <% @chatrooms.each do |chatroom| %>
+        <%= link_to chatroom_path(chatroom) do %>
+          <li><%= chatroom.name %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="follows-list">
+
+    </div>
+
+    </div>
 </div>

@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   def index
     @posts = policy_scope(Post)
     @post = Post.new
+    @chatrooms = policy_scope(Chatroom).order(created_at: :desc)
+    @chatrooms = Chatroom.all
+    @user = current_user
+
   end
 
   # def new
