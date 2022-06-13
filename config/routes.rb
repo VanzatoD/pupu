@@ -19,9 +19,6 @@ Rails.application.routes.draw do
   resources :comments, only: [ :destroy, :show]
 
 
-  resources :chatrooms, only: :show do
-    resources :messages, only: :create
-  end
 
 
   # match :like, to: 'likes#create', as: :like, via: :post
@@ -29,8 +26,12 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :follows, only: [:create]
+    resources :chatrooms, only: [:create]
   end
 
+  resources :chatrooms, only: [:show] do
+    resources :messages, only: :create
+  end
   resources :follows, only: [:destroy]
 
 end
