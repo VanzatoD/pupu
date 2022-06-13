@@ -9,6 +9,12 @@
             <div class="p-5" style="width:300px; height: 192px; background-image: url(<%= cl_image_path @post.photo.key %>); background-size: cover; background-repeat: no-repeat;" >
             </div>
           <% end %>
+
+      <% if @post.video.attached? %>
+        <div class= "video p-5" style= "background-size: cover; background-repeat: no-repeat;">
+          <%= cl_video_tag @post.video.key, cloudinary_resource_type: 'raw', autoplay: true, loop: true, controls: true %>
+        </div>
+      <% end %>
   </div>
   <%= link_to 'Return', posts_path, class: "mx-5 btn btn-warning btn-rounded" %>
   <% if policy(@post).destroy? %>

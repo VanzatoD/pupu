@@ -1,8 +1,9 @@
 <div class="form-style">
   <%= simple_form_for @post do |f|  %>
+    <%= f.input :tag_list, collection: Post::TAGS  %>
     <%= f.input :content  %>
     <%= f.input :photo, as: :file %>
-    <%= f.input :video, as: :file %>
+    <%= f.input :video, as: :file, cloudinary_resource_type: 'raw' %>
     <%= f.submit class: 'btn btn-primary btn-rounded'%>
   <%end%>
 </div>
@@ -13,10 +14,20 @@
       <div class='card' style="width: 18rem;">
         <div class='card-body'>
           <%=post.content %>
-           <% if post.photo.attached? %>
-          <div class="p-5" style="width:300px; height: 192px; background-image: url(<%= cl_image_path post.photo.key %>); background-size: cover; background-repeat: no-repeat;" >
-          </div>
-        <% end %>
+          <% if post.tags.empty? %>
+            <%= "General" %>
+          <% else %>
+            <%= post.tags.first.name %>
+          <% end %>
+          <% if post.photo.attached? %>
+            <div class="p-5" style="width:300px; height: 192px; background-image: url(<%= cl_image_path post.photo.key %>); background-size: cover; background-repeat: no-repeat;" >
+            </div>
+          <% end %>
+          <% if post.video.attached? %>
+            <div class= "video p-5" style= "background-size: cover; background-repeat: no-repeat;">
+              <%= cl_video_tag post.video.key, cloudinary_resource_type: 'raw', autoplay: true, loop: true, controls: true %>
+            </div>
+          <% end %>
           <%= post.user.username %>
           <%= post.created_at.strftime("%H:%M %d-%m-%Y")%>
         </div>
