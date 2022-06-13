@@ -11,7 +11,8 @@
           <% end %>
 
       <% if @post.video.attached? %>
-        <div class= "video p-5" style= "background-size: cover; background-repeat: no-repeat;background-image: url(<%= cl_video_tag @post.video.key, cloudinary_resource_type: 'raw', autoplay: true, loop: true, controls: true %>);">
+        <div class= "video p-5" style= "background-size: cover; background-repeat: no-repeat;">
+          <%= cl_video_tag @post.video.key, cloudinary_resource_type: 'raw', autoplay: true, loop: true, controls: true %>
         </div>
       <% end %>
   </div>
