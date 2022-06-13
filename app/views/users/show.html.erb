@@ -3,7 +3,7 @@
 <%# criar if else(if current_user = profile.user = my_profile) %>
 <%# else profile = user.id %>
   <div class="profile-information">
-
+    <%= cl_image_tag current_user.avatar.key, class: "profile-pic"%>
     <h1>Username: <%= @user.username %></h1>
     <p>Followers: <%= @user.followers.count %></p>
     <p>Following: <%= @user.following.count %></p>
