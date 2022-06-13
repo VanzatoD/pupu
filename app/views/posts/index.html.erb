@@ -1,3 +1,14 @@
+<div><%= link_to "Create Team", new_team_path, class: "btn btn-primary" %>
+</div>
+
+<div class="form-style">
+  <%= simple_form_for @post do |f|  %>
+    <%= f.input :content  %>
+    <%= f.input :photo, as: :file %>
+    <%= f.input :video, as: :file %>
+    <%= f.submit class: 'btn btn-primary btn-rounded'%>
+  <%end%>
+</div>
 
 <div class="d-flex justify-content-between mt-4">
   <div class="user-infos">
