@@ -2,7 +2,7 @@
   <%= simple_form_for @post do |f|  %>
     <%= f.input :content  %>
     <%= f.input :photo, as: :file %>
-    <%= f.input :video, as: :file %>
+    <%= f.input :video, as: :file, cloudinary_resource_type: 'raw' %>
     <%= f.submit class: 'btn btn-primary btn-rounded'%>
   <%end%>
 </div>
