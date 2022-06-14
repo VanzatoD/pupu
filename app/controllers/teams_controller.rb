@@ -26,6 +26,8 @@ class TeamsController < ApplicationController
     @posts = @posts.flatten
   end
 
+
+
   private
 
   def team_params

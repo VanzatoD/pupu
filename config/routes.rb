@@ -19,8 +19,12 @@ Rails.application.routes.draw do
   resources :comments, only: [ :destroy, :show]
 
   resources :teams, only: [ :create, :new, :destroy, :show ] do
-    resources :memberships, only: [ :create ]
-    post "post_team_chatroom", to: "teams#post_team_chatroom"
+    resources :memberships, only: :create
+    resources :chatroom_teams, only: :create
+  end
+
+  resources :chatroom_teams, only: :show do
+    resources :message_teams, only: :create
   end
 
   resources :users do
