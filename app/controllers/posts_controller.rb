@@ -5,6 +5,7 @@ class PostsController < ApplicationController
     @chatrooms = policy_scope(Chatroom).order(created_at: :desc)
     @chatrooms = Chatroom.all
     @user = current_user
+    @following = Follow.where(follower_id: current_user.id)
 
   end
 
