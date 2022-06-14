@@ -22,10 +22,4 @@ class ChatroomsController < ApplicationController
       redirect_to rooth_path, notice: "Sorry, Chat could not be created"
     end
   end
-
-  private
-
-  def message_params
-    params.require(:message).permit(:content)
-  end
 end
