@@ -1,5 +1,5 @@
 
-<div class="d-flex justify-content-between mt-4">
+<div class="d-flex justify-content-between mt-4 mx-5">
   <div class="user-infos mt-5">
     <div class="username-section d-flex flex-column align-items-center ">
       <div class="position-relative">
@@ -44,7 +44,7 @@
 
 
   <div class="feed-size">
-    <div class="form-style w-75 mb-3 mx-auto">
+    <div class="form-style width-60 mb-3 mx-auto">
       <%= simple_form_for @post do |f|  %>
         <%= f.input :content, :input_html => {class: "content-height"} %>
         <div class=" d-flex justify-content-between">
@@ -64,7 +64,7 @@
       </div>
     </div>
 
-  <div class="container w-50 padding-feed">
+  <div class="container width-60 padding-feed">
     <% @posts.each do |post| %>
       <%= link_to post_path(post), style:"color: black; text-decoration:none;" do  %>
         <div class='w-100' style="width: 18rem;">
