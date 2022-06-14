@@ -9,6 +9,18 @@ class PostsController < ApplicationController
     if params["param"].present?
       @posts = policy_scope(Post).select { |post| post.user.tags == current_user.tags }
     end
+
+    if params["param_event"].present?
+      @posts = policy_scope(Post).select { |post| post.tags.first.name == "Events" }
+    end
+
+    if params["param_highlight"].present?
+      @posts = policy_scope(Post).select { |post| post.tags.first.name == "Highlights" }
+    end
+
+    if params["param_searching"].present?
+      @posts = policy_scope(Post).select { |post| post.tags.first.name == "Team Searching" }
+    end
   end
 
   # def new
