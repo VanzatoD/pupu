@@ -4,4 +4,26 @@
 
 <%= link_to "Join", team_memberships_path(@team), method: :post %>
 
+
 </h1>
+
+<h3>
+Membros
+</h3>
+<ul>
+  <% @memberships.each do |member| %>
+    <li>
+
+    <%= member %>
+
+    </li>
+  <% end %>
+</ul>
+
+<% @posts.each do |post| %>
+  <%= post.content %>
+  <%= post.media %>
+  <%= post.user.username %>
+<% end %>
+
+<%# index do post, linhas 50-73, criar card %>

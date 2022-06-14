@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_13_190905) do
+ActiveRecord::Schema.define(version: 2022_06_14_150254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 2022_06_13_190905) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "chatroom_teams", force: :cascade do |t|
+    t.string "name"
+    t.bigint "team_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_chatroom_teams_on_team_id"
   end
 
   create_table "chatrooms", force: :cascade do |t|
@@ -86,6 +94,16 @@ ActiveRecord::Schema.define(version: 2022_06_13_190905) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["team_id"], name: "index_memberships_on_team_id"
     t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
+  create_table "message_teams", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_team_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_team_id"], name: "index_message_teams_on_chatroom_team_id"
+    t.index ["user_id"], name: "index_message_teams_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -161,12 +179,15 @@ ActiveRecord::Schema.define(version: 2022_06_13_190905) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chatroom_teams", "teams"
   add_foreign_key "chatrooms", "users"
   add_foreign_key "chatrooms", "users", column: "user_two_id"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "memberships", "teams"
   add_foreign_key "memberships", "users"
+  add_foreign_key "message_teams", "chatroom_teams"
+  add_foreign_key "message_teams", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "taggings", "tags"

@@ -18,7 +18,15 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
     authorize @team
+    @memberships = @team.memberships.joins(:user).pluck(:username)
+    @posts = []
+    @team.memberships.each do |member|
+      @posts << member.user.posts
+    end
+    @posts = @posts.flatten
   end
+
+
 
   private
 
