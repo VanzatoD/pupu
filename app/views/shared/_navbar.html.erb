@@ -17,7 +17,16 @@
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Chatrooms", chatrooms_path, class: "nav-link" %>
+            <%= link_to "Filter", posts_path(param: current_user.tags.first.name), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Events", posts_path(param_event: "events"), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Highlights", posts_path(param_highlight: "highlights"), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Team Seaching", posts_path(param_searching: "team searching"), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <% if current_user.avatar.attached? %>
