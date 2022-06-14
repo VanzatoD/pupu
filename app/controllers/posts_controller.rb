@@ -5,6 +5,7 @@ class PostsController < ApplicationController
     @chatrooms = policy_scope(Chatroom).where(user: current_user).or(Chatroom.where(user_two: current_user))
     authorize @chatrooms
     @user = current_user
+    @following = Follow.where(follower_id: current_user.id)
 
   end
 
