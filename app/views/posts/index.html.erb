@@ -12,15 +12,19 @@
       <h3 class="mt-4"><%= current_user.username  %></h3>
      </div>
     <div class="container  profile-card">
-
-        <p style="oppacity= 50%">looking for a team <i class="fa-solid fa-magnifying-glass"></i></p>
-
-        <p>followers <%= current_user.followers.count %></p>
-        <p>following <%= current_user.following.count %></p>
+<div class="row p-2 mx-auto">
+        <p style="oppacity= 50%">looking for a team <i class="fas fa-search"></i></p>
+</div>
+<div class="row">
+      <div class="d-flex padding-border">
+       <div class="col-6 "><p class="px-1 pt-1">followers <%= current_user.followers.count %></p></div>
+        <div class="col-6"><p class="px-1 pt-1"> following <%= current_user.following.count %></p></div>
+      </div>
+</div>
     </div>
 
     <div class="container">
-        <h3>Not in a team yet<i class="fas fa-search"></i></h3>
+        <h3>Not in a team yet</h3>
         <div><%= link_to "Create Team", new_team_path, class: "btn btn-primary" %>
 </div>
 
