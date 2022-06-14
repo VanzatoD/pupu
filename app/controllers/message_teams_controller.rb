@@ -7,7 +7,11 @@ class MessageTeamsController < ApplicationController
     @message_team.chatroom_team = @chatroom_team
     @message_team.user = current_user
     if @message_team.save
-      redirect_to chatroom_team_path(@chatroom_team, anchor: "message_team-#{@message_team.id}")
+      ChatroomTeamChannel.broadcast_to(
+        @chatroom_team,
+        render_to_string(partial: "message_team", locals: { message_team: @message_team })
+      )
+      head :ok
     else
       render "chatrooms/show"
     end
