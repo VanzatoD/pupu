@@ -1,15 +1,17 @@
 
 <div class="d-flex justify-content-between mt-4">
-  <div class="user-infos">
-      <div>
+  <div class="user-infos mt-5">
+     <div class="username-section d-flex flex-column align-items-center ">
+      <div class="position-relative">
       <% if current_user.avatar.attached? %>
         <%= cl_image_tag current_user.avatar.key, class: "avatar feed-avatar" %>
       <% else %>
         <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "avatar feed-avatar" %>
       <% end %>
       </div>
+      <h3 class="mt-4"><%= current_user.username  %></h3>
+     </div>
     <div class="container  profile-card">
-      <h3><%= current_user.username  %></h3>
 
         <p style="oppacity= 50%">looking for a team <i class="fa-solid fa-magnifying-glass"></i></p>
 
@@ -48,11 +50,22 @@
       </div>
     </div>
 
-  <div class="container w-75 padding-feed">
+  <div class="container w-50 padding-feed">
     <% @posts.each do |post| %>
       <%= link_to post_path(post), style:"color: black; text-decoration:none;" do  %>
-        <div class='card w-100' style="width: 18rem;">
-          <div class='card-feed'>
+        <div class='w-100' style="width: 18rem;">
+          <div class='card-feed p-4 mb-2 d-flex flex-column align-items-center'>
+            <div class='user-info'>
+
+                <% if post.user.avatar.attached? %>
+                  <%= cl_image_tag post.user.avatar.key, class: "avatar" %>
+                <% else %>
+                  <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "avatar" %>
+                <% end %>
+
+                <%= post.user.username %>
+
+            </div>
             <%=post.content %>
             <% if post.tags.empty? %>
               <%= "General" %>
@@ -65,11 +78,10 @@
             <% end %>
             <% if post.video.attached? %>
               <div class= "video p-5" style= "background-size: cover; background-repeat: no-repeat;">
-                <%= cl_video_tag post.video.key, cloudinary_resource_type: 'raw', autoplay: true, loop: true, controls: true %>
+                <%= cl_video_tag post.video.key, cloudinary_resource_type: 'raw', autoplay: false, loop: true, controls: true %>
               </div>
             <% end %>
-            <%= post.user.username %>
-            <%= post.created_at.strftime("%H:%M %d-%m-%Y")%>
+            <p>Published at <%= time_ago_in_words(post.created_at) %></p>
           </div>
         </div>
       <% end %>
@@ -81,7 +93,7 @@
 
 
 
-    <div class="chats">
+    <div class="chats ">
       <ul>
         <% @chatrooms.each do |chatroom| %>
         <%= link_to chatroom_path(chatroom) do %>
@@ -90,6 +102,8 @@
         <% end %>
       </ul>
     </div>
+
+
     <div class="follows-list">
       <% @following.each do |follow| %>
       <%= link_to follow.followed.username, user_path(follow.followed) %>

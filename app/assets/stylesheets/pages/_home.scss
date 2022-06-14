@@ -7,5 +7,17 @@ body{
 
 .profile-card{
 border: solid 1px #0ef6be;
-border-radius: 8px;
+border-radius: 0px 0px 8px 8px;
+
+}
+
+.username-section{
+  background-color: #0ef6be;
+  border-radius: 8px 8px 0px 0px;
+  margin: 0 0;
+  h3{
+    margin: 0 0;
+    color: #1e2528;
+    font-weight: 600;
+  }
 }

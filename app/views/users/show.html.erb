@@ -3,8 +3,8 @@
 <%# criar if else(if current_user = profile.user = my_profile) %>
 <%# else profile = user.id %>
   <div class="profile-information">
-     <% if current_user.avatar.attached? %>
-        <%= cl_image_tag current_user.avatar.key, class: "avatar profile-pic "%>
+     <% if @user.avatar.attached? %>
+        <%= cl_image_tag @user.avatar.key, class: "avatar profile-pic "%>
       <% else %>
         <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "avatar profile-pic "%>
       <% end %>
