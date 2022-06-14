@@ -30,9 +30,9 @@ Rails.application.routes.draw do
     resources :chatrooms, only: [:create]
   end
 
-  resources :chatrooms, only: [:show] do
+  resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
-  resources :follows, only: [:destroy]
 
+  resources :follows, only: [:destroy]
 end
