@@ -6,7 +6,8 @@ class PostsController < ApplicationController
     authorize @chatrooms
     @user = current_user
     @following = Follow.where(follower_id: current_user.id)
-
+    @posts = policy_scope(Post).select { |post| post.user.tags == current_user.tags }
+    raise
   end
 
   # def new
