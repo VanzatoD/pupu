@@ -1,13 +1,14 @@
 
 <div class="d-flex justify-content-between mt-4">
   <div class="user-infos">
-    <div class="container p-5">
+      <div>
       <% if current_user.avatar.attached? %>
         <%= cl_image_tag current_user.avatar.key, class: "avatar feed-avatar" %>
       <% else %>
         <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "avatar feed-avatar" %>
       <% end %>
-
+      </div>
+    <div class="container  profile-card">
       <h3><%= current_user.username  %></h3>
 
         <p style="oppacity= 50%">looking for a team <i class="fa-solid fa-magnifying-glass"></i></p>
