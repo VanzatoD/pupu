@@ -20,10 +20,8 @@ Rails.application.routes.draw do
 
   resources :teams, only: [ :create, :new, :destroy, :show ] do
     resources :memberships, only: [ :create ]
+    post "post_team_chatroom", to: "teams#post_team_chatroom"
   end
-
-  # match :like, to: 'likes#create', as: :like, via: :post
-  # match :unlike, to: 'likes#destroy', as: :unlike, via: :post
 
   resources :users do
     resources :follows, only: [:create]
