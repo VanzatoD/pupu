@@ -7,4 +7,5 @@ class Team < ApplicationRecord
   def create_chatroom
     @chatroom_team = ChatroomTeam.create(name: self.title, team: self)
   end
+
 end
