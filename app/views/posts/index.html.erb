@@ -97,15 +97,19 @@
 
 
 
-    <div class="chats ">
-      <ul>
-        <% @chatrooms.each do |chatroom| %>
+  <div class="chats">
+    <ul>
+      <% @chatrooms.each do |chatroom| %>
         <%= link_to chatroom_path(chatroom) do %>
-          <li><%= chatroom.name %></li>
+          <% if chatroom.user == current_user %>
+            <li><%= image_tag chatroom.user_two.avatar_thumbnail, class: "avatar" %><%= chatroom.user_two.username %></li>
+          <% else %>
+            <li><%= image_tag chatroom.user.avatar_thumbnail, class: "avatar" %><%= chatroom.user.username %></li>
           <% end %>
         <% end %>
-      </ul>
-    </div>
+      <% end %>
+    </ul>
+  </div>
 
 
     <div class="follows-list">
