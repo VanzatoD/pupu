@@ -31,11 +31,13 @@
       <% if current_user.teams.empty? %>
         <h3>Not in a team yet</h3>
       <% else %>
-        <h3><%= current_user.teams.first.title %></h3>
+
+        <% current_user.teams.each do |team| %>
+          <%= link_to "#{team.title}", team_path(team) %>
+        <% end %>
       <% end %>
-        <div>
-          <%= link_to "Create Team", new_team_path, class: "btn btn-primary" %>
-        </div>
+        <div><%= link_to "Create Team", new_team_path, class: "btn btn-primary" %>
+</div>
     </div>
   </div>
 
