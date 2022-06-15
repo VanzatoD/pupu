@@ -1,25 +1,28 @@
-<div class="container chatroom"
-  data-controller="chatroom-team-subscription"
-  data-chatroom-team-subscription-chatroom-id-value="<%= @chatroom_team.id %>"
->
-  <h1>#<%= @chatroom_team.name %></h1>
 
-  <div class="messages" data-chatroom-team-subscription-target="messages">
-    <% @chatroom_team.message_teams.each do |message_team| %>
-      <%= render "message_teams/message_team", message_team: message_team %>
-    <% end %>
+<div class="container chatroom" data-controller="chatroom-subscription"
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom_team.id %>">
+  <div class="chatroom_title">
+    <%= link_to @chatroom_team.name, user_path(@chatroom_team.id), method: :get, class: "d-inline-flex" %>
+    - Main Chatroom
   </div>
-  <%= simple_form_for [@chatroom_team, @message_team],
-  remote: true,
-  html: {data: {action: "ajax:success->chatroom-team-subscription#resetForm"}, class: "d-flex" } do |f| %>
-  <%= f.input :content,
-    label: false,
-    placeholder: "Message ##{@chatroom_team.name}",
-    wrapper_html: {class: "flex-grow-1"}
-  %>
-  <%= f.submit "Send", class: "btn btn-primary" %>
-<% end %>
-
-<%= link_to "Return", team_path(@chatroom_team.team), class: "btn btn-primary" %>
-
+  <div class="chat_box pr-2">
+    <div class="messages" data-chatroom-subscription-target="messages">
+      <% @chatroom_team.message_teams.each do |message| %>
+        <%= render 'messages/message', message: message %>
+      <% end %>
+    </div>
+  </div>
+      <%= simple_form_for [@chatroom_team, @message_team],
+      remote: true,
+      html: {data: {action: "ajax:success->chatroom-team-subscription#resetForm"}} do |f|
+      %>
+    <div class="d-flex">
+      <div class="w-100 border-0">
+        <%= f.input :content, label: false, placeholder: "Say something to ##{@chatroom_team.name}" %>
+      </div>
+        <div class="chat_button">
+          <%= f.submit "Send", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
 </div>
