@@ -13,16 +13,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <style>
       <%= ".msg-#{current_user&.id}" %> {
-        background-color: #505050;
+        background-color: #c3c3c3;
         text-align: right;
       }
       <%= ".msg-container-#{current_user&.id}" %> {
         justify-content: flex-end
       }
-      button:not(:disabled), [type="submit"]:not(:disabled) {
-      cursor: pointer;
-      background-color: #1A5B4F;
-      color: white;
+      .chat_button:not(:disabled), [type="submit"]:not(:disabled) {
+        cursor: pointer;
+        background-color: #1A5B4F;
+        border: solid 1px #1a5b4f;
+        color: white;
     }
     </style>
   </head>

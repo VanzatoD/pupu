@@ -6,11 +6,10 @@ export default class extends Controller {
   static targets = ["messages"]
 
   connect() {
-    this.channel = consumer.subscriptions.create(
+    consumer.subscriptions.create(
       { channel: "ChatroomTeamChannel", id: this.chatroomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
-    console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
   }
   #insertMessageAndScrollDown(data) {
     this.messagesTarget.insertAdjacentHTML("beforeend", data)
