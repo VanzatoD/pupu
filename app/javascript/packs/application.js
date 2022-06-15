@@ -14,3 +14,11 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+document.addEventListener("turbolinks:load", ()=>{
+  document.querySelectorAll("video").forEach((video) => {
+    console.log(video)
+    video.muted = true;
+    video.play()
+  })
+})

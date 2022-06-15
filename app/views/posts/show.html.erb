@@ -11,7 +11,7 @@
       <div>
         <h1 ><%= link_to @post.user.username, user_path(@post.user), method: :get %></h1>
 
-       <p>Published at <%= time_ago_in_words(@post.created_at) %></p>
+       <p style="color:rgba(230, 230, 230, 0.7)">Published at <%= time_ago_in_words(@post.created_at) %></p>
       </div>
       <div class="d-flex">
        <div class="mx-2">
@@ -40,13 +40,13 @@
       <p style="font-size: 30px;"><%= @post.content %></p>
 
       <% if @post.photo.attached? %>
-         <div class="p-5" style="width:300px; height: 192px; background-image: url(<%= cl_image_path @post.photo.key %>); background-size: cover; background-repeat: no-repeat;" >
+         <div class="p-5" style="border-radius:20px; width:800px; height: 400px; background-image: url(<%= cl_image_path @post.photo.key %>); background-size: cover; background-repeat: no-repeat;" >
         </div>
       <% end %>
 
       <% if @post.video.attached? %>
-        <div class= "video p-5" style= "background-size: cover; background-repeat: no-repeat;">
-         <%= cl_video_tag @post.video.key, cloudinary_resource_type: 'raw', autoplay: true, loop: true, controls: true %>
+        <div class= "video p-0 m-0" style= "background-size: cover; background-repeat: no-repeat; border-radius: 20px; overflow: hidden;">
+         <%= cl_video_tag @post.video.key, cloudinary_resource_type: 'raw', loop: true, controls: true, muted: true, transformation: [{ width:800, height:400, crop:"fill" }, {radius:20}] %>
         </div>
       <% end %>
     </div>
