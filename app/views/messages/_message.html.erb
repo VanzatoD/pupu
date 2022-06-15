@@ -1,7 +1,8 @@
-<div id="message-<%= message.id %>">
-  <small>
+<div id="message-<%= message.id %>" class="d-flex msg-container-<%= message.user.id %>">
+  <div class="chat-message msg-<%= message.user.id %>">
+    <p class="user"></p>
     <strong><%= message.user.username %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
+    <p class="message_content"><%= message.content %></p>
+  </div>
 </div>
