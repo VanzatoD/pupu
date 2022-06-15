@@ -98,13 +98,14 @@
 
 
   <div class="chats">
-    <ul>
+  <i class="chat-icon far fa-envelope"></i>
+    <ul class=" friend-list">
       <% @chatrooms.each do |chatroom| %>
         <%= link_to chatroom_path(chatroom) do %>
           <% if chatroom.user == current_user %>
-            <li><%= image_tag chatroom.user_two.avatar_thumbnail, class: "avatar" %><%= chatroom.user_two.username %></li>
+            <li class=" friend"><%= image_tag chatroom.user_two.avatar_thumbnail, class: "avatar" %><%= chatroom.user_two.username %></li>
           <% else %>
-            <li><%= image_tag chatroom.user.avatar_thumbnail, class: "avatar" %><%= chatroom.user.username %></li>
+            <li class=" friend"><%= image_tag chatroom.user.avatar_thumbnail, class: "avatar" %><%= chatroom.user.username %></li>
           <% end %>
         <% end %>
       <% end %>

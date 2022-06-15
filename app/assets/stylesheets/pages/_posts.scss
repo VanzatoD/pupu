@@ -24,3 +24,71 @@
 .width-60{
   width: 60%;
 }
+
+
+.chats{
+
+  .chat-icon{
+    color: #1e2528;
+    position: relative;
+    top: 40px;
+    right: -9px;
+    font-size: 24px;
+  }
+
+}
+
+.friend-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 342px;
+  height: 100%;
+  background: #2b3438;
+  list-style-type: none;
+  margin: 0;
+  border-radius: 18px 0px 0px 18px;
+  background: #0ef6be;
+  padding-left: 40px;
+  border: solid 1px #0ef6be;
+}
+
+.friend {
+  width: 300px;
+  height: 60px;
+  background: #2B3438;
+  border-bottom: 1px solid #1e2528;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.friend img {
+  width: 45px;
+  height: 45px;
+  border-radius: 30px;
+  border: 2px solid #AAA;
+  object-fit: cover;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.friend .name {
+  font-size: 18px;
+}
+
+// .friend.selected {
+//   background: #43A047;
+//   color: white;
+// }
+
+// .friend.selected img {
+//   border-color: #0ef6be;
+// }
+
+.friend:hover {
+  background: #2b3438;
+ img{
+  border-color: #0ef6be;
+  }
+}
