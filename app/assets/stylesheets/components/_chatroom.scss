@@ -22,6 +22,7 @@
     color: #000000;
     font-weight: bold;
     height: 100%;
+    min-height: 70vh;
     overflow: scroll;
     overflow-x: hidden;
     overflow-y: auto;
@@ -45,7 +46,7 @@
   .chat_box {
     background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.5)), url("https://res.cloudinary.com/juliocb01/image/upload/v1655306168/PuPu/Chat%20Wallpaper/gamer_doodle_new_2_fixed_borders_zybtko.jpg");
     background-repeat: repeat;
-    background-size: 350px, contain, cover;
+    background-size: contain, cover;
     overflow: scroll;
     overflow-y: hidden;
     overflow-x: hidden;
