@@ -11,7 +11,7 @@
       <div>
         <h1 ><%= link_to @post.user.username, user_path(@post.user), method: :get %></h1>
 
-       <p style="color:rgba(230, 230, 230, 0.7)">Published at <%= time_ago_in_words(@post.created_at) %></p>
+       <p style="color:rgba(230, 230, 230, 0.7)">Published <%= time_ago_in_words(@post.created_at) %> ago</p>
       </div>
       <div class="d-flex">
        <div class="mx-2">
