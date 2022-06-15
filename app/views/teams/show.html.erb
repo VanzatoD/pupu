@@ -1,6 +1,7 @@
 <h1>
 
 <%= @team.title %>
+<%= image_tag @team.avatar_thumbnail, class: "avatar" %>
 <% if Membership.find_by(user: current_user, team: @team).present? %>
   <%= link_to "Chatroom", chatroom_team_path(@team.chatroom_team) %>
 <% else %>
