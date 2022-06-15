@@ -1,8 +1,12 @@
 <h1>
 
 <%= @team.title %>
+<% if Membership.find_by(user: current_user, team: @team).present? %>
+  <%= link_to "Chatroom", chatroom_team_path(@team.chatroom_team) %>
+<% else %>
+  <%= link_to "Join", team_memberships_path(@team), method: :post %>
+<% end %>
 
-<%= link_to "Join", team_memberships_path(@team), method: :post %>
 
 
 </h1>

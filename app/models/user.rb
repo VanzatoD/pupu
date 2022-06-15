@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :teams, through: :memberships
   has_one_attached :avatar
   acts_as_taggable_on :tags
+  validates :tag_list, presence: true
 
   TAGS = ['League of Legends', 'Counter-Strike', 'Tekken 7']
 

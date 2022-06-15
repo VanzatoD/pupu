@@ -9,6 +9,7 @@ class TeamsController < ApplicationController
     authorize @team
     @team.user = current_user
     if @team.save
+      Membership.create!(user: current_user, team: @team)
       redirect_to @team
     else
       render :new
