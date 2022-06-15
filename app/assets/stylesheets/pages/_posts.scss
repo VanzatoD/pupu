@@ -29,7 +29,7 @@
 .chats{
 
   .chat-icon{
-    color: #1e2528;
+    color: #0ef6be;
     position: relative;
     top: 40px;
     right: -9px;
@@ -44,11 +44,10 @@
   padding: 0;
   width: 342px;
   height: 100%;
-  background: #2b3438;
+  background: #1e2528;
   list-style-type: none;
   margin: 0;
   border-radius: 18px 0px 0px 18px;
-  background: #0ef6be;
   padding-left: 40px;
   border: solid 1px #0ef6be;
 }
@@ -58,6 +57,7 @@
   height: 60px;
   background: #2B3438;
   border-bottom: 1px solid #1e2528;
+  border-left: 1px solid #0ef6be;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -92,3 +92,38 @@
   border-color: #0ef6be;
   }
 }
+
+.follows-list{
+
+  ul{
+    list-style: none;
+  }
+  padding: 0px;
+  border: solid 1px #0ef6be;
+  border-radius: 8px;
+  background: #2B3438;
+
+
+  .follow-item{
+    width: 300px;
+    height: 60px;
+    background: #2B3438;
+    border-bottom: 1px solid #1e2528;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  .follow-item:hover{
+    color: #0ef6be;
+  }
+}
+  .title-follow{
+    background-color: #0ef6be;
+    border-radius: 8px 8px 0px 0px;
+    margin: 0 0;
+    h3{
+      margin: 0 0;
+      color: #1e2528;
+      font-weight: 600;
+    }
+  }
