@@ -32,14 +32,14 @@
     <div class="container">
       <% if current_user.teams.empty? %>
         <h3>Not in a team yet</h3>
+        <div><%= link_to "Create Team", new_team_path, class: "btn btn-primary" %>
+        </div>
       <% else %>
 
         <% current_user.teams.each do |team| %>
           <%= link_to "#{team.title}", team_path(team) %>
         <% end %>
       <% end %>
-        <div><%= link_to "Create Team", new_team_path, class: "btn btn-primary" %>
-</div>
     </div>
   </div>
 
@@ -72,32 +72,29 @@
         <div class='w-100' style="width: 18rem;">
           <div class='card-feed p-4 mb-2 d-flex flex-column align-items-center'>
             <div class='user-info'>
-
+              <div class='d-flex'>
                 <% if post.user.avatar.attached? %>
                   <%= cl_image_tag post.user.avatar.key, class: "avatar" %>
                 <% else %>
                   <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "avatar" %>
                 <% end %>
 
-                <%= post.user.username %>
-
+                <h3><%= post.user.username%></h3>
+              </div>
             </div>
+            <p style="font-size: 15px; color:rgba(230, 230, 230, 0.7);align-self: flex-start;">Published at <%= time_ago_in_words(post.created_at) %></p>
+
             <%=post.content %>
-            <% if post.tags.empty? %>
-              <%= "General" %>
-            <% else %>
-              <%= post.tags.first.name %>
-            <% end %>
+
             <% if post.photo.attached? %>
               <div class="p-5" style="width:300px; height: 192px; background-image: url(<%= cl_image_path post.photo.key %>); background-size: cover; background-repeat: no-repeat;" >
               </div>
             <% end %>
             <% if post.video.attached? %>
               <div class= "video p-5" style= "background-size: cover; background-repeat: no-repeat;">
-                <%= cl_video_tag post.video.key, cloudinary_resource_type: 'raw', autoplay: false, loop: true, controls: true %>
+                <%= cl_video_tag post.video.key, cloudinary_resource_type: 'raw', autoplay: false, loop: true, controls: true, autoplay: true, muted: true, transformation: [{ width:300, crop:"scale" }] %>
               </div>
             <% end %>
-            <p>Published at <%= time_ago_in_words(post.created_at) %></p>
           </div>
         </div>
       <% end %>
@@ -111,7 +108,11 @@
 
   <div class="chats mt-5">
   <i class="chat-icon far fa-envelope"></i>
+
     <ul class=" friend-list">
+        <% if @chatrooms.blank? %>
+            <li class="no-chat px-5 d-flex-column"><%= image_tag ("fantasma.png"), class: "my-5"%> <p class="mb-0 pb-3">No Messages</p> </li>
+        <% end %>
       <% @chatrooms.each do |chatroom| %>
         <%= link_to chatroom_path(chatroom) do %>
           <% if chatroom.user == current_user %>
@@ -129,6 +130,9 @@
 
       <div class="title-follow px-5"><h3><i class="fas fa-users"></i> following</h3></div>
       <ul>
+        <% if @following.blank? %>
+            <li class="no-follows px-5 d-flex-column"><%= image_tag ("heart.png"), class: "my-5"%> <p class="mb-0 pb-3"> no friends yet</p> </li>
+        <% end %>
         <% @following.each do |follow| %>
           <%= link_to user_path(follow.followed) do %>
               <li class="follow-item"><i class="far fa-user px-2"></i> <%= follow.followed.username %></li>
