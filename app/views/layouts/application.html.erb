@@ -10,6 +10,20 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <style>
+      <%= ".msg-#{current_user&.id}" %> {
+        background-color: #505050;
+        text-align: right;
+      }
+      <%= ".msg-container-#{current_user&.id}" %> {
+        justify-content: flex-end
+      }
+      button:not(:disabled), [type="submit"]:not(:disabled) {
+      cursor: pointer;
+      background-color: #1A5B4F;
+      color: white;
+    }
+    </style>
   </head>
 
   <body>

@@ -43,15 +43,13 @@
   }
 
   .chat_box {
-    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.5)), url("https://res.cloudinary.com/juliocb01/image/upload/v1655306168/PuPu/Chat%20Wallpaper/gamer_doodle_new_2_fixed_borders_zybtko.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url("https://res.cloudinary.com/juliocb01/image/upload/v1655319434/PuPu/Chat%20Wallpaper/gamer_doodle_new_2_colors_inverted_tcdcdn.jpg");
     background-repeat: repeat;
     background-size: 350px, contain, cover;
     overflow: scroll;
     overflow-y: hidden;
     overflow-x: hidden;
     border-top-left-radius: 5px;
-    -webkit-filter: grayscale(1) invert(1);
-    filter: grayscale(1) invert(1);
   }
 
   .chat_button {
