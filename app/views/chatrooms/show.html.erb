@@ -3,9 +3,11 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <div class="chatroom_title">
     <% if @chatroom.user == current_user %>
-      <%= link_to @chatroom.user_two.username, user_path(@chatroom.user_two), method: :get %>
+      <%= image_tag @chatroom.user_two.avatar_thumbnail, class: "avatar d-flex" %>
+      <%= link_to @chatroom.user_two.username, user_path(@chatroom.user_two), method: :get, class: "d-inline-flex" %>
     <% else %>
-      <%= link_to @chatroom.user.username, user_path(@chatroom.user), method: :get %>
+      <%= image_tag @chatroom.user.avatar_thumbnail, class: "avatar d-flex" %>
+      <%= link_to @chatroom.user.username, user_path(@chatroom.user), method: :get, class: "d-inline-flex" %>
     <% end %>
   </div>
   <div class="chat_box pr-2">
