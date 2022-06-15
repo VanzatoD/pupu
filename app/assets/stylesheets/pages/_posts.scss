@@ -153,9 +153,60 @@ background: radial-gradient(circle, rgba(18,177,139,1) 20%, #1e2528 50%, #1e2528
     background-color: #0ef6be;
     border-radius: 8px 8px 0px 0px;
     margin: 0 0;
+    text-align: center;
     h3{
       margin: 0 0;
       color: #1e2528;
       font-weight: 600;
     }
   }
+
+  .team-list{
+
+ a {
+ text-align: center;
+}
+
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    padding: 0px;
+    border: solid 1px #0ef6be;
+    border-radius: 8px;
+    background: #2B3438;
+
+    .team-item{
+      width: 300px;
+      height: 60px;
+      background: #2B3438;
+      border-bottom: 1px solid #1e2528;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      border-radius: 0px 0px 8px 8px;
+    }
+    .team-item:hover{
+      color: #0ef6be;
+    }
+  }
+    .title-team{
+      background-color: #0ef6be;
+      border-radius: 8px 8px 0px 0px;
+      margin: 0 0;
+      text-align: center;
+      h3{
+        margin: 0 0;
+        color: #1e2528;
+        font-weight: 600;
+      }
+    }
+
+    .member-title{
+      color: #0ef6be;
+      font-size: 15px;
+      margin-top: 15px;
+      margin-bottom: 0px;
+      border-bottom: solid 1px #0ef6be;
+    }
