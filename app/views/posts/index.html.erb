@@ -16,7 +16,7 @@
     <div class="container  profile-card">
       <div class="row p-2 mx-auto">
         <% if current_user.teams.empty? %>
-          <p style="oppacity= 50%">looking for a team <i class="fas fa-search"></i></p>
+          <p style="oppacity= 50%">Looking for a team <i class="fas fa-search"></i></p>
         <% else %>
           <div class="d-flex justify-content-center">
           <p style="oppacity= 50%"> <%= current_user.teams.first.title %></p>
@@ -25,8 +25,8 @@
       </div>
       <div class="row">
         <div class="d-flex justify-content-center padding-border">
-          <div class="col-6 "><p class="px-1 pt-1">followers <%= current_user.followers.count %></p></div>
-          <div class="col-6"><p class="px-1 pt-1"> following <%= current_user.following.count %></p></div>
+          <div class="col-6 "><p class="px-1 pt-1">Followers <%= current_user.followers.count %></p></div>
+          <div class="col-6"><p class="px-1 pt-1"> Following <%= current_user.following.count %></p></div>
         </div>
       </div>
     </div>
