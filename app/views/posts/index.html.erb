@@ -1,12 +1,12 @@
 
 <div class="d-flex justify-content-between mt-4 mx-5">
-  <div class="user-infos mt-5">
+  <div class="user-infos sticking mt-5">
     <div class="username-section d-flex flex-column align-items-center ">
-      <div class="position-relative">
+      <div class="position-relative mt-5">
         <% if current_user.avatar.attached? %>
-          <%= cl_image_tag current_user.avatar.key, class: "avatar feed-avatar" %>
+          <%= cl_image_tag current_user.avatar.key, class: " feed-avatar" %>
         <% else %>
-          <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "avatar feed-avatar" %>
+          <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: " feed-avatar" %>
         <% end %>
       </div>
 
@@ -39,7 +39,7 @@
          <div>
          <h4 class="p-4" >Not in a team yet</h4>
          <div class="d-flex justify-content-center">
-          <%= link_to "Create Team", new_team_path, class: "btn btn-primary" %>
+          <%= link_to "Find a Team", new_team_path, class: " btn-find" %>
          </div>
         </div>
       <% else %>
@@ -97,17 +97,18 @@
             <div class='user-info'>
               <div class='d-flex'>
                 <% if post.user.avatar.attached? %>
-                  <%= cl_image_tag post.user.avatar.key, class: "avatar" %>
+                  <%= cl_image_tag post.user.avatar.key, class: "avatar mx-3" %>
                 <% else %>
-                  <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "avatar" %>
+                  <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "avatar mx-3" %>
                 <% end %>
 
                 <h3><%= post.user.username%></h3>
               </div>
             </div>
             <p style="font-size: 15px; color:rgba(230, 230, 230, 0.7);align-self: flex-start;">Published <%= time_ago_in_words(post.created_at) %> ago</p>
-
-            <%=post.content %>
+              <div class="p-4">
+                <%=post.content%>
+              </div>
 
             <% if post.photo.attached? %>
               <div class="p-5" style="width:500px; height: 280px; background-image: url(<%= cl_image_path post.photo.key %>); background-size: cover; background-repeat: no-repeat;" >
@@ -125,7 +126,7 @@
 
   </div>
 </div>
-    <div class="social-infos">
+    <div class=" social-infos sticking">
 
 
 
@@ -134,7 +135,7 @@
 
     <ul class=" friend-list">
         <% if @chatrooms.blank? %>
-            <li class="no-chat px-5 d-flex-column"><%= image_tag ("fantasma.png"), class: "my-5"%> <p class="mb-0 pb-3">No Messages</p> </li>
+            <li class="no-chat px-5 d-flex-column"><%= image_tag ("fantasma.png"), class: "my-5"%> <p class="mb-0 py-3">No Messages</p> </li>
         <% end %>
       <% @chatrooms.each do |chatroom| %>
         <%= link_to chatroom_path(chatroom) do %>
@@ -154,7 +155,7 @@
       <div class="title-follow px-5"><h3><i class="fas fa-users"></i> following</h3></div>
       <ul>
         <% if @following.blank? %>
-            <li class="no-follows px-5 d-flex-column"><%= image_tag ("heart.png"), class: "my-5"%> <p class="mb-0 pb-3"> no friends yet</p> </li>
+            <li class="no-follows px-5 d-flex-column"><%= image_tag ("heart.png"), class: "my-5"%> <p class="mb-0 py-3"> no friends yet</p> </li>
         <% end %>
         <% @following.each do |follow| %>
           <%= link_to user_path(follow.followed) do %>
