@@ -9,3 +9,84 @@ color: #0ef6be !important;
 transform-origin: right;
 transition-duration: 0.3s;
 }
+
+
+.btn-find{
+  border: solid 1px #f7f7f7;
+  color: #f7f7f7;
+  margin-bottom: 15px;
+  padding: 10px;
+  transition: 0.4s;
+}
+.btn-find:hover{
+  border:solid 1px #0ef6be;
+  color: #2b3438;
+  font-weight: 600;
+  padding: 12px;
+  background-color: #0ef6be;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+
+
+.btn-return{
+
+  color: rgba(247, 247, 247, 1);
+  background-color: #1e2528;
+  border-radius: 15px;
+  border:solid 3px rgba(35, 196, 131, 1);
+  transition: 0.2s;
+  letter-spacing: 2.5px;
+
+}
+.btn-return:hover{
+  color: #1e2528;
+  background-color: rgb(35, 196, 131);
+  transition: 0.2s;
+  font-size: 20px;
+}
+
+.btn-delete{
+  background-color: rgb(244, 49, 49);
+  font-weight: bold;
+  color: #f7f7f7;
+  border:rgba(244, 49, 49, 0.6);
+  transition: 0.2s;
+  border-radius: 6px;
+  opacity: 60%;
+}
+
+.btn-delete:hover{
+  background-color: rgb(244, 49, 49);
+  color: #1e2528 ;
+  font-size: 20px;
+  box-shadow: 1px 1px 1px rgba(244, 49, 49, 0.6);
+  transition: 0.2s;
+  opacity: 100%;
+}
+
+.btn-like{
+ color: rgba(247, 247, 247, 1);
+ transition:0.2s;
+ font-size:25px;
+}
+
+.btn-like:hover{
+  color: #ff004d;
+  font-size: 20px;
+  transition:0.2s;
+  font-size: 30px;
+}
+
+.btn-dislike{
+  color: #ff004d;
+  font-size: 20px;
+  transition:0.2s;
+  font-size:30px;
+}
+.btn-dislike:hover{
+  color: rgba(247, 247, 247, 1);
+  transition:0.2s;
+  font-size:25px;
+}
