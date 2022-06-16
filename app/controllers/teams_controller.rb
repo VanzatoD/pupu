@@ -16,7 +16,7 @@ class TeamsController < ApplicationController
     end
   end
 
-  
+
   def show
     @team = Team.find(params[:id])
     authorize @team
@@ -26,6 +26,9 @@ class TeamsController < ApplicationController
       @posts << member.user.posts
     end
     @posts = @posts.flatten
+    @chatrooms = policy_scope(Chatroom).where(user: current_user).or(Chatroom.where(user_two: current_user))
+    authorize @chatrooms
+    @following = Follow.where(follower_id: current_user.id)
   end
 
 
