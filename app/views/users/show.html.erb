@@ -12,7 +12,7 @@
         <% if @user.avatar.attached? %>
             <%= cl_image_tag @user.avatar.key, class: "avatar profile-pic "%>
           <% else %>
-            <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "avatar profile-pic "%>
+            <%= image_tag "placeholder.png", class: "avatar profile-pic "%>
           <% end %>
             <div class="mx-3">
             <h1 style="font-weight: 600;"><%= @user.username %>'s profile page</h1>
@@ -57,7 +57,7 @@
                 <% if post.user.avatar.attached? %>
                   <%= cl_image_tag post.user.avatar.key, class: "avatar mx-3" %>
                 <% else %>
-                  <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "avatar mx-3" %>
+                  <%= image_tag "placeholder.png", class: "avatar mx-3" %>
                 <% end %>
 
                 <h3><%= post.user.username%></h3>

@@ -22,7 +22,7 @@ class User < ApplicationRecord
     if avatar.attached?
       avatar.variant(resize: "40x40!").processed
     else
-      "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png"
+     "placeholder.png"
     end
   end
 end

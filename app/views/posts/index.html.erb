@@ -2,11 +2,11 @@
 <div class="d-flex justify-content-between mt-4 mx-5">
   <div class="user-infos sticking mt-5">
     <div class="username-section d-flex flex-column align-items-center ">
-      <div class="position-relative mt-5">
+      <div class="position-relative mt-5" >
         <% if current_user.avatar.attached? %>
-          <%= cl_image_tag current_user.avatar.key, class: " feed-avatar" %>
+          <%= cl_image_tag current_user.avatar.key, class: " feed-avatar", style:"background-color: #0ef6be" %>
         <% else %>
-          <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: " feed-avatar" %>
+          <%= image_tag "placeholder.png", class: " feed-avatar", style:"background-color: #0ef6be" %>
         <% end %>
       </div>
 
@@ -99,7 +99,7 @@
                 <% if post.user.avatar.attached? %>
                   <%= cl_image_tag post.user.avatar.key, class: "avatar mx-3" %>
                 <% else %>
-                  <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "avatar mx-3" %>
+                  <%= image_tag "placeholder.png", class: "avatar mx-3" %>
                 <% end %>
 
                 <h3><%= post.user.username%></h3>

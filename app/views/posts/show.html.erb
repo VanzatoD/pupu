@@ -5,7 +5,7 @@
       <% if @post.user.avatar.attached? %>
         <%= cl_image_tag @post.user.avatar.key, class: "post-avatar" %>
       <% else %>
-        <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "post-avatar" %>
+        <%= image_tag "placeholder.png", class: "post-avatar" %>
       <% end %>
       <div class="mx-5 d-flex">
       <div>
@@ -84,7 +84,7 @@
           <% if @post.user.avatar.attached? %>
             <%= cl_image_tag @post.user.avatar.key, class: "comment-avatar" %>
           <% else %>
-            <%= image_tag "https://www.shareicon.net/data/128x128/2016/08/18/809170_user_512x512.png", class: "comment-avatar" %>
+            <%= image_tag "placeholder.png", class: "comment-avatar" %>
           <% end %>
           <div>
             <div class="user-comment-name">
