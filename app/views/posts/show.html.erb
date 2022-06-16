@@ -81,8 +81,8 @@
     <% @comments.each do |comment|%>
       <div class="card-feed p-4 my-3">
         <div class="d-flex mb-4">
-          <% if @post.user.avatar.attached? %>
-            <%= cl_image_tag @post.user.avatar.key, class: "comment-avatar" %>
+          <% if comment.user.avatar.attached? %>
+            <%= cl_image_tag comment.user.avatar.key, class: "comment-avatar" %>
           <% else %>
             <%= image_tag "placeholder.png", class: "comment-avatar" %>
           <% end %>
