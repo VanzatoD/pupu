@@ -3,6 +3,10 @@
     <p class="user"></p>
     <strong><%= message.user.username %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-    <p><%= message.content %></p>
+    <% if message.content.match?(/http/) %>
+      <p><%= message.content.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %></p>
+    <% else %>
+      <p><%= message.content %></p>
+    <% end %>
   </div>
 </div>
