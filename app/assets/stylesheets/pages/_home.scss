@@ -49,6 +49,19 @@ border-radius: 0px 0px 8px 8px;
 }
 
 .sticking{
+  height: 100vh;
   position: sticky;
-  top: 4rem;
+  top: 0;
+}
+
+.user-infos{
+height: 100vh;
+position: sticky;
+top: 0;
+}
+
+.social-infos{
+  height: 100vh;
+  position: sticky;
+  top: 0;
 }
