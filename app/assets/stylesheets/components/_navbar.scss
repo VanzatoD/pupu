@@ -55,7 +55,7 @@
   justify-content: space-between !important;
 }
 
-nav-item:active{
-  color: #2a8675;
-  border: 0px 3px 3px 3px solid #2a8675;
+.nav-item-active{
+  background-color: red;
+
 }
