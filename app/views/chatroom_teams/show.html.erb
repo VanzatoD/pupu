@@ -3,8 +3,7 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom_team.id %>">
   <div class="chatroom_title" >
       <div class="d-flex header mt-5" style="align-items: center; background-color: #0ef6be; border-radius: 5px 5px 0px 0px; padding: 5px; color: #2b3438; font-weight: 600">
-    <%= link_to @chatroom_team.name, team_path(@chatroom_team.id), method: :get, class: "hovering" %>
-    - Main Chatroom
+        <%= link_to @chatroom_team.name + " - Main Chatroom", team_path(@chatroom_team.id), method: :get, class: "hovering" %>
     </div>
   </div>
   <div class="chat_box pr-2">
