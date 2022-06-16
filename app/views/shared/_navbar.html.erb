@@ -17,11 +17,11 @@
         <% if user_signed_in? %>
         <% if params[:param].present? %>
           <li class="mx-5 nav-item-active">
-            <%= link_to "Filter", posts_path(param: current_user.tags.first.name), class: "nav-link" %>
+            <%= link_to "Your Game", posts_path(param: current_user.tags.first.name), class: "nav-link" %>
           </li>
         <% else %>
           <li class="mx-5 nav-item">
-            <%= link_to "Filter", posts_path(param: current_user.tags.first.name), class: "nav-link" %>
+            <%= link_to "Your Game", posts_path(param: current_user.tags.first.name), class: "nav-link" %>
           </li>
         <% end %>
           <% if params[:param_event].present? %>
