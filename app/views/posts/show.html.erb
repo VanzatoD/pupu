@@ -21,11 +21,11 @@
   <% if user_signed_in? %>
     <% if @post.liked?(current_user) %>
       <% @like = @post.liked?(current_user) %>
-      <%= link_to like_path(@like), method: :delete do %>
+      <%= link_to like_path(@like), method: :delete, remote: true do %>
       <i class="fas fa-heart btn-dislike"></i>
       <% end %>
     <% else %>
-      <%= link_to  post_likes_path(@post), method: :post  do%>
+      <%= link_to  post_likes_path(@post), method: :post, remote: true  do%>
          <i class="far fa-heart btn-like"></i>
       <% end %>
     <% end %>
