@@ -72,7 +72,7 @@
   <div class="comment-section container">
 
   <div class="form-style">
-    <%= simple_form_for [@post, @comment] do |f|  %>
+    <%= simple_form_for [@post, @comment], remote: true do |f|  %>
       <%= f.input :content, label: "leave a comment"  %>
       <%= f.submit class: 'btn post-btn'%>
     <%end%>
