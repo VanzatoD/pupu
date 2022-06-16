@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 
     if params["param_highlight"].present?
       @posts = policy_scope(Post).select { |post| post.tags.first.name == "Highlights" }
+      @css_class = "selected"
     end
 
     if params["param_searching"].present?
