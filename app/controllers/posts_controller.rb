@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = policy_scope(Post)
+    @posts = policy_scope(Post).order(created_at: :desc)
     @post = Post.new
     @chatrooms = policy_scope(Chatroom).where(user: current_user).or(Chatroom.where(user_two: current_user))
     authorize @chatrooms
