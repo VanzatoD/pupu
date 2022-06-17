@@ -45,7 +45,7 @@
 <% if Membership.find_by(user: current_user, team: @team).present? %>
   <%= link_to "Chatroom", chatroom_team_path(@team.chatroom_team), class: 'btn-flw' %>
 <% else %>
-  <%= link_to "Join", team_memberships_path(@team), method: :post, class: 'btn-flw'  %>
+  <%= link_to "Join", team_memberships_path(@team), method: :post, remote: true, class: 'btn-flw'  %>
 <% end %>
  </div>
 </div>

@@ -4,7 +4,7 @@
   <div class="container-fluid">
   <div>
     <%= link_to "#", class: "navbar-brand disable" do %>
-      <p class="nav-title"><%= image_tag "pupu-panda.png" %> PuPu.GG</p>
+      <p class="nav-title"><%= image_tag "pupu-panda.png" %> PuPu</p>
     <% end %>
   </div>
 
@@ -17,11 +17,11 @@
         <% if user_signed_in? %>
         <% if params[:param].present? %>
           <li class="mx-5 nav-item-active">
-            <%= link_to "Filter", posts_path(param: current_user.tags.first.name), class: "nav-link" %>
+            <%= link_to "Your Game", posts_path(param: current_user.tags.first.name), class: "nav-link" %>
           </li>
         <% else %>
           <li class="mx-5 nav-item">
-            <%= link_to "Filter", posts_path(param: current_user.tags.first.name), class: "nav-link" %>
+            <%= link_to "Your Game", posts_path(param: current_user.tags.first.name), class: "nav-link" %>
           </li>
         <% end %>
           <% if params[:param_event].present? %>
@@ -52,11 +52,11 @@
           </li><% end %>
           <% if params[:param_searching].present? %>
           <li class="mx-5 nav-item-active">
-            <%= link_to "Team Seaching", posts_path(param_searching: "team searching"), class: "nav-link" %>
+            <%= link_to "Team Searching", posts_path(param_searching: "team searching"), class: "nav-link" %>
           </li>
         <% else %>
           <li class="nav-item mx-5">
-            <%= link_to "Team Seaching", posts_path(param_searching: "team searching"), class: "nav-link" %>
+            <%= link_to "Team Searching", posts_path(param_searching: "team searching"), class: "nav-link" %>
           </li>
           <% end %>
       </ul>
